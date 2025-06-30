@@ -1,0 +1,478 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{fancyhdr}
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\usepackage{braket}
+\usepackage{mhchem}
+\usepackage{chemfig}
+\usepackage{gensymb}
+\newcommand{\ve}{\mathbf}
+\newcommand{\pa}{\partial}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+
+\title{Proofs and Derivations}
+\author{Neutron Stars for Undergraduates}
+\date{March 2025}
+
+\begin{document}
+\maketitle
+\section*{Equation 1}
+We know that the outer face of the small bit of the star (as shown in figure 1) experience less 
+force than the inner face, since the outer face is a distance $r+dr$ away and
+ the inner only $r$ away from the center. Therefore we would expect the gravity differential $dF$ to be negative.  
+Suppose the mass of the block is $dm$, hence $dF$ is given by
+\begin{align}
+    dF=-\frac{GMdm}{r^2}
+\end{align}
+If the star hass mass density $\rho$, we can rewrite (1) according to the details provided in figure 1.
+\begin{align}
+    dF=-\frac{GM\rho A \ dr}{r^2}
+\end{align}
+Using the definition of pressure, we obtain the solution. 
+\begin{align}
+    dp=\frac{dF}{A}=-\frac{GM\rho \ dr}{r^2}\implies \frac{dp}{dr}=-\frac{GM\rho}{r^2}
+\end{align}
+We can rewrite the solution in terms of energy. Since $E=mc^2$, dividing both sices by $V$ gives 
+$\epsilon=\rho c^2$ where $\epsilon$ is the energy density. Hence (3) becomes 
+\begin{align}
+    \boxed{\frac{dp}{dr}=-\frac{GM\epsilon}{c^2r^2}}
+\end{align}
+\section*{Equation 2 and 3}
+The definition of density gives the following 
+\begin{align}
+    dM=\rho\ dV
+\end{align}
+The usual $dV$ for radial symmetry is $dV=4\pi r^2 dr$, hence (5) becomes 
+\begin{align}
+    dM=4\pi\rho r^2\ dr=\frac{4\pi\epsilon r^2}{c^2}\ dr\implies \boxed{\frac{dM}{dr}=\frac{4\pi\epsilon r^2}{c^2}}
+\end{align}
+Using the separated form of (6) and integrating both sides, we obtain 
+\begin{align}
+    M=\int_0^r\frac{4\pi\epsilon r'^2}{c^2}dr'
+\end{align}
+Where the variable change $r\mapsto r'$ was made since $r$ has to be an integration bound.
+
+\section*{Equation 10}
+To obtain the total energy of a set of electrons with the same spin, we integrate over the energy of every single possible state, 
+\begin{align}
+    E_{total}=\int E\ dN\implies \epsilon=\int E\ dn
+\end{align}
+Where we have divided both sides by $V$, and used the definitions $\epsilon=E/V$ and $n=N/V\implies dn=dN/V$.
+We replace energy by Einstein's formula, where momentum is denoted by $k$ (they use this convention in the paper). 
+\begin{align}
+    \epsilon=\int\sqrt{k^2c^2+m^2c^4}dn
+\end{align}
+From equation (6) in the paper, we replace $dn$ with the expression in terms of $dk$, giving 
+\begin{align}
+    \epsilon=\int \sqrt{k^2c^2+m^2c^4}\frac{4\pi k^2}{(2\pi\hbar)^3}\ dk
+\end{align}
+Since we are integrating over all possible states, the integration bounds are naturally from 0 to the fermi momentum 
+$k_f$. Additionally, since there are 2 spin states per electron, we must multiply the whole expression by 2.
+\begin{align}
+    \boxed{\epsilon=\frac{8\pi}{(2\pi\hbar)^3}\int_0^{k_f}\sqrt{k^2c^2+m^2c^4}\ k^2\ dk}
+\end{align}
+\section*{Equation 12}
+From the definition that $dU=dQ-pdV$, we set $dQ$ to 0 since there is no change in temperature, 
+and thus obtain $dU=-pdV$, hence 
+\begin{align}
+    p=-\frac{dU}{dV}
+\end{align}
+Since $U$ is the total energy of the nucleons, we can write $\epsilon=U/V$. Now, replacing the above, we have 
+\begin{align}
+    p=-\frac{d(\epsilon V)}{dV}=-(\frac{d\epsilon}{dV}V+\epsilon)
+\end{align}
+Let us examine the first term, 
+\begin{align}
+    \frac{d\epsilon}{dV}=\frac{d\epsilon}{dn}\frac{dn}{dV}=\frac{d\epsilon}{dn}\frac{d}{dV}(N/V)=-\frac{d\epsilon}{dn}\frac{N}{V^2}
+\end{align}
+Where we have used the definition $n=N/V$. Thus our equation (13) becomes 
+\begin{align}
+    p=-(-\frac{d\epsilon}{dn}\frac{N}{V^2}V+\epsilon)=\boxed{\frac{d\epsilon}{dn}n-\epsilon}
+\end{align}
+\section*{Equation 13}
+Let us return to our expression for $\epsilon$
+\begin{align}
+     {\epsilon=\frac{8\pi}{(2\pi\hbar)^3}\int_0^{k_f}\sqrt{k^2c^2+m^2c^4}\ k^2\ dk}
+\end{align}
+For convienience, we shall define $\epsilon'$ as follows 
+\begin{align}
+    \epsilon'&=\int_0^{k_f}\sqrt{k^2c^2+m^2c^4}\ k^2\ dk\\
+\end{align}
+Now, we integrate by parts. Differentiating the energy part and integrating the momentum part, we obtain 
+\begin{align}
+    &=\sqrt{k^2c^2+m^2c^4}\int_0^{k_f}k^2\ dk -\int_0^{k_f}\frac{d}{dk}\sqrt{k^2c^2+m^2c^4}\int k^2\ dk\ dk\\ 
+    &=\frac{1}{3}k_f^3\sqrt{k^2c^2+m^2c^4}-\int_0^{k_f}\frac{1}{3}k^3\frac{c^2k}{\sqrt{k^2c^2+m^2c^4}}dk\\
+    &=\frac{1}{3}k_f^3\sqrt{k^2c^2+m^2c^4}-\frac{1}{3}\int_0^{k_f}\frac{c^2k^4}{\sqrt{k^2c^2+m^2c^4}}dk
+\end{align}
+Thus, multiplying by the original coefficients present in our (16), we obtain the expression for $\epsilon$. 
+\begin{align}
+    \epsilon=\frac{8\pi k_f^3}{(2\pi\hbar)^3}\sqrt{k^2c^2+m^2c^4}-\frac{8\pi}{3(2\pi\hbar)^3}\int_0^{k_f}\frac{c^2k^4}{\sqrt{k^2c^2+m^2c^4}}dk
+\end{align}
+If we multiply our (9) by 2, we get the total energy density for all the electrons. Differentiating that expression WRT $n$ gives 
+the following 
+\begin{align}
+    \frac{d\epsilon}{dn}=2\sqrt{k^2c^2+m^2c^4}
+\end{align}
+If we multiply this by the paper's definition of $n$ in its (7), we obtain 
+\begin{align}
+    n\frac{d\epsilon}{dn}=\frac{8\pi k_f^3}{(2\pi\hbar)^3}\sqrt{k^2c^2+m^2c^4}
+\end{align}
+Hence, we can substitute everything into our (15) and obtain 
+\begin{align}
+    p&=\frac{8\pi k_f^3}{(2\pi\hbar)^3}\sqrt{k^2c^2+m^2c^4}-(\frac{8\pi k_f^3}{(2\pi\hbar)^3}\sqrt{k^2c^2+m^2c^4}-\frac{1}{3}\int_0^{k_f}\frac{c^2k^4}{\sqrt{k^2c^2+m^2c^4}}dk)\\
+\implies& \boxed{p=\frac{8\pi c^2}{3(2\pi\hbar)^3}\int_0^{k_f}\frac{c^2k^4}{\sqrt{k^2+m^2c^4}}dk}
+\end{align}
+\section*{Equation 14}
+The following is the second line of the paper's (13)
+\begin{align}
+    p=\frac{m^4c^5}{3\pi^2\hbar^3}\int_0^{k_f/mc}\frac{u^4}{\sqrt{u^2+1}}\ du
+\end{align}
+In the relativistic case, the particles have extremely high momenta, thus $k_f>>m$, thus the ratio $u=k_f/mc>>1$, meaning $u^2+1\approx u^2$. 
+Thus the above becomes 
+\begin{align}
+    p&=\frac{m^4c^5}{3\pi^2\hbar^3}\int_0^{k_f/mc}\frac{u^4}{\sqrt{u^2}}\ du=\frac{m^4c^5}{3\pi^2\hbar^3}\int_0^{k_f/mc}u^3\ du\\
+    &=\frac{m^4c^5}{3\pi^2\hbar^3}\frac{k_f^4}{4(mc)^4}
+\end{align}
+Recall the definition of $k_f$ from the paper. Substituting that into our (28) gives 
+\begin{align}
+    p=\frac{\hbar c}{12\pi^2}(\frac{3\pi^2\rho}{m_N}\frac{Z}{A})^{4/3}
+\end{align}
+Recall that $\epsilon\approx \rho c^2$ where electron mass contribution is minimal. Thus,  we can rewrite the pressure as 
+\begin{align}
+    p\approx\frac{\hbar c}{12\pi^2}(\frac{3\pi^2}{m_Nc^2}\frac{Z}{A})^{4/3}\epsilon^{4/3}
+\end{align}
+Now, we define the following parameter 
+\begin{align}
+    K_{rel}\equiv\frac{\hbar c}{12\pi^2}(\frac{3\pi^2}{m_Nc^2}\frac{Z}{A})^{4/3}
+\end{align}
+And thus our (30) beocmes the final expression 
+\begin{align}
+    \boxed{p\approx K_{rel}\epsilon^{4/3}}
+\end{align}
+\section*{Equation 15}
+Now we consider the case where the particles are slow moving such that relativistic effects can 
+be neglected. In this case, $k_f<<m$, hence $u=k_f/mc\approx0$. Hence our (26) becomes 
+\begin{align}
+    p&=\frac{m^4c^5}{3\pi^2\hbar^3}\int_0^{k_f/mc}\frac{u^4}{\sqrt{1}}\ du=\frac{m^4c^5}{3\pi^2\hbar^3}\frac{k_f^5}{5(mc)^5}
+\end{align}
+Again, recalling the definition of Fermi momentum and using $\epsilon=\rho c^2$, the above can be rewritten as 
+\begin{align}
+    p=\frac{\hbar^2}{15\pi^2m}(\frac{3\pi^2 Z}{m_N c^2 A})^{5/3}\epsilon^{5/3}
+\end{align}
+We again define yet another parameter 
+\begin{align}
+    K_{nonrel}\equiv\frac{\hbar^2}{15\pi^2m}(\frac{3\pi^2 Z}{m_N c^2 A})^{5/3}
+\end{align}
+Our (34) is thus in its final desired form 
+\begin{align}
+    \boxed{p=K_{nonrel}\epsilon^{5/3}}
+\end{align}
+\section*{Equation 18}
+From the start we have the following
+\begin{align}
+    \frac{dp}{dr}=-\frac{GM\epsilon}{c^2r^2}=-\frac{G\epsilon M_{\odot}M/M_{\odot}}{c^2r^2}=-\frac{GM_{\odot}}{c^2}\frac{\epsilon M/M_{odot}}{r^2}
+\end{align}
+Using the definitions of $R_0$ and $\bar{M}$ from the paper, we obtain the following 
+\begin{align}
+    \boxed{\frac{dp}{dr}=-R_0\frac{\epsilon\bar{M}}{r^2}}
+\end{align}
+\section*{Equation 23}
+According to the definitions in the paper before equation 23, the normalised pressure $\bar{p}$ can be written in 
+differential form in terms of $dp/dr$ as follows 
+\begin{align}
+    \frac{d\bar{p}}{dr}=\frac{d(p/\epsilon_0)}{dr}=\frac{1}{\epsilon_0}\frac{dp}{dr}=-R_0\frac{\epsilon/\epsilon_0\bar{M}}{r^2}=-R_0\frac{\bar{\epsilon}\bar{M}}{r^2}
+\end{align}
+Replacing the $\bar{\epsilon}$ with the paper's (22), the pressure equation is now in terms of pressure. This simplifies the problem a lot.
+\begin{align}
+    \frac{d\bar{p}}{dr}=-R_0\frac{(\bar{p}/\bar{K})^{1/\gamma}\bar{M}}{r^2}=-\frac{R_0}{\bar{K}^{1/\gamma}}\frac{\bar{p}^{1/\gamma}\bar{M}}{r^2}
+\end{align}
+We now define the parameter 
+\begin{align}
+    \alpha\equiv\frac{R_0}{\bar{K}^{1/\gamma}}
+\end{align}
+Thus, our (41) becomes the following  
+\begin{align}
+    \boxed{\frac{d\bar{p}}{dr}=-\alpha\frac{\bar{p}^{1/\gamma}\bar{M}}{r^2}}
+\end{align}
+\section*{Equation 26}
+From our (26), the mass equation reads
+\begin{align}
+    \frac{dM}{dr}=\frac{4\pi\epsilon r^2}{c^2}
+\end{align}
+Dividing both sides by $M_{\odot}$ and recognising that $\epsilon=\epsilon_0\bar{\epsilon}$ gives the following 
+\begin{align}
+    \frac{d\bar{M}}{dr}=\frac{4\pi\bar{\epsilon}\epsilon_0}{c^2M_{\odot}}r^2
+\end{align}
+Now, using the paper's (22) to replace $\bar{\epsilon}$, we obtain the above in terms of pressure  instead of energy density
+\begin{align}
+    \frac{d\bar{M}}{dr}=\frac{4\pi\epsilon_0}{c^2M_{\odot}\bar{K}^{1/\gamma}}\bar{p}^{1/\gamma}r^2
+\end{align}
+We define another parameter as follows 
+\begin{align}
+    \beta\equiv\frac{4\pi\epsilon_0}{c^2M_{\odot}\bar{K}^{1/\gamma}}
+\end{align}
+Now, the mass equation is much simpler, reading 
+\begin{align}
+    \boxed{\frac{d\bar{M}}{dr}=\beta\bar{p}^{1/\gamma}r^2}
+\end{align}
+\section*{Equation 52}
+For a collection of particles, we previously reasoned that we can find the total energy density by 
+integrating their energies across the number density 
+\begin{align}
+    \epsilon=\int_0^N E\ dn
+\end{align}
+Since the chemical potential $\mu$ is given by $d\epsilon/dn$, we can find it as 
+\begin{align}
+    \mu=\frac{d\epsilon}{dn}=\frac{d}{dn}\int_0^N E\ dn=E\bigg|_0^{k_f}
+\end{align}
+Using Eistein's equation, it is obvious that the $N$th particle will have momentum equal to 
+the Fermi momentum, hence 
+\begin{align}
+    \mu=\sqrt{c^2k_f^2+m^2c^2}
+\end{align}
+We shall now perform a unit transformation, transitioning into natural units where $c=1$. Hence, 
+(51) can now be rewritten into a simpler form 
+\begin{align}
+    \boxed{\mu=\sqrt{k_f^2+m^2}}
+\end{align}
+\section*{Equation 69*}
+Here we shall derive how the kinetic
+ energy term in the paper's (69) can be rewritten in the form $\la E_f^0\ra u^{2/3}$. 
+ The kinetic energy term  reads 
+ \begin{align}
+    \la E_f\ra&=\frac{3}{5}\frac{\hbar^2 k_f^2}{2m}
+ \end{align}
+ Here $m$ refers to the nucleon mass. We can expand $k_f$ according to its definition. 
+ \begin{align}
+    k_f=\hbar(\frac{3\pi^2\rho}{m}\frac{Z}{A})^{1/3}=\hbar(\frac{3\pi^2}{m}\frac{nmA}{Z}\frac{Z}{A})^{1/3}=\hbar(3\pi^2n)^{1/3}
+ \end{align}
+ Since $u=n/n_0$, we can multiply our (54) my $n_0/n_0$ to get it in terms of $u$ 
+ \begin{align}
+    k_f=\hbar(3\pi^2n_0 n/n_0)^{1/3}=\hbar(3\pi^2n_0)^{1/3}u^{1/3}
+ \end{align}
+ Notice that $\hbar(3\pi^2n_0)^{1/3}$ is simply the Fermi energy when $n=n_0$, in other words, the 
+ number density is at the equillibrium number density. Hence, if we denote this fermi energy by $k_f^0$, we obtain 
+ \begin{align}
+    k_f=k_f^0u^{1/3}\implies k_f^2=(k_f^0)^2u^{2/3}
+ \end{align}
+ Now, recall the definition of average Fermi energy, 
+ \begin{align}
+    \la E_f\ra=\frac{3}{5}\frac{\hbar^2}{2m}k_f^2=\frac{3}{5}\frac{\hbar^2}{2m}(k_f^0)^2u^{2/3}
+ \end{align}
+ Notice again that everything before $u^{2/3}$ is simply a restatement of the Fermi energy when $n=n_0$, 
+ which we shall denote as $\la E_f^0\ra$. We arrive finally at the desired form 
+ \begin{align}
+    \boxed{\la E_f\ra=\la E_f^0\ra u^{2/3}}
+ \end{align}
+ And hence the energy per nucleon can be written as 
+ \begin{align}
+    \frac{E}{A}=\frac{\epsilon}{n}=m+\la E_f^0\ra u^{2/3}+\frac{A}{2}u+\frac{B}{\sigma+1}u^{\sigma}
+ \end{align}
+ \section*{Equation 77}
+ We can find the pressure using our previously derived result 
+ \begin{align}
+    p=n^2\frac{d(\epsilon/n)}{dn}=\frac{n^2}{n_0^2}n_0^2 \frac{d(\epsilon/n)}{du}\frac{du}{dn}=u^2n_0^2\frac{d(\epsilon/n)}{du}\frac{du}{dn}
+ \end{align}
+ Let us evaluate the derivatives. The first one reads
+ \begin{align}
+    \frac{d(\epsilon/n)}{du}&=\frac{d}{du}(m+\la E_f^0\ra u^{2/3}+\frac{A}{2}u+\frac{B}{\sigma+1}u^{\sigma})\\ 
+    &=\frac{2}{3}\la E_f^0\ra u^{-1/3}+\frac{A}{2}+\frac{B\sigma}{\sigma+1}u^{\sigma-1}
+ \end{align}
+ Now on to the second one 
+ \begin{align}
+    \frac{du}{dn}=\frac{d}{dn}(\frac{n}{n_0})=\frac{1}{n_0}
+ \end{align}
+ Hence our (60) can now be expressed as 
+ \begin{align}
+    p&=u^2n_0^2(\frac{2}{3}\la E_f^0\ra u^{-1/3}+\frac{A}{2}+\frac{B\sigma}{\sigma+1}u^{\sigma-1})\frac{1}{n_0}\\ 
+ \end{align}
+ And finally distributing the factor of $u^2$ at the start, we arrive at the final expression 
+ \begin{align}
+    \boxed{p=n_0(\frac{2}{3}\la E_f^0\ra u^{5/3}+\frac{A}{2}u^2+\frac{B\sigma}{\sigma+1}u^{\sigma+1})}
+ \end{align}
+ \section*{Equation 81}
+ The number of either the neutrons or the protons can be expressed as follows 
+ \begin{align}
+    n_{np}=\frac{1\pm\alpha}{2}n
+ \end{align}
+ Where plus is for neutron and minus is for proton. 
+ Hence the Fermi momentum for either is simply 
+ \begin{align}
+    k_{f}=\hbar(3\pi^2 n_{np})^{1/3}
+ \end{align}
+ If we square and multiply it by the neutron/proton number $n_{np}$, we arrive at 
+ \begin{align}
+    k_f^2n_{np}=\hbar(3\pi^2)^{2/3}n_{np}^{5/3}=\hbar(3\pi^2)^{2/3}(\frac{1\pm\alpha}{2})^{5/3}n^{5/3}
+ \end{align}
+Hence, the energy density for either a neutron or a proton can be expressed by 
+\begin{align}
+    \epsilon_{np}=\frac{3}{5}\frac{k_f^2}{2m}n_{np}=\frac{3}{5}\frac{\hbar^2}{2m}(3\pi^2)^{2/3}(\frac{1\pm\alpha}{2})^{5/3}n^{5/3}
+\end{align}
+We now add together the energy density of the neutrons (chooseing $\pm$ to be $+$) and the energy density of protons (choosing $\pm$ to be $-$).
+\begin{align}
+    \epsilon=\frac{3}{5}\frac{\hbar^2}{2m}\frac{(3\pi^2)^{2/3}}{2^{5/3}}n^{5/3}[(1+\alpha)^{5/3}+(1-\alpha)^{5/3}] 
+\end{align}
+Now we rewrite the above into a more familliar form 
+\begin{align}
+    \epsilon=\frac{3}{5}\frac{\hbar^2}{2m}(\frac{3\pi^2 n}{2})^{2/3}\frac{n}{2}[(1+\alpha)^{5/3}+(1-\alpha)^{5/3}] 
+\end{align}
+Notice that everything before the factor of $n/2$ is the average Fermi energy. If we rewrite it as that, we arrive at 
+\begin{align}
+    \boxed{\epsilon=\frac{n}{2}\la E_f\ra[(1+\alpha)^{5/3}+(1-\alpha)^{5/3}] }
+\end{align}
+\section*{Equation 85}
+Using our (73), we can find the energy density for symmetric nuclear matter, where $\alpha=0$. This gives 
+\begin{align}
+    \epsilon=n\la E_f\ra
+\end{align} 
+We can thus find the difference in energy density between symmetric and asymmetric nuclear matter as follows
+\begin{align}
+    \Delta\epsilon&=\frac{n}{2}\la E_f\ra[(1+\alpha)^{5/3}+(1-\alpha)^{5/3}]-n\la E_f\ra\\ 
+    &=n\la{E_f}\ra[\frac{1}{2}[(1+\alpha)^{5/3}+(1-\alpha)^{5/3}]-1]
+\end{align}
+We shall consider the folloing expansions 
+\begin{align}
+    (1+\alpha)^{5/3}&=\sum_{i=0}^{\infty} {5/3 \choose i}\alpha^i\\ 
+    (1-\alpha)^{5/3}&=\sum_{i=0}^{\infty} {5/3 \choose i}(-1)^i\alpha^i
+\end{align}
+This is an exact representations for all values of $\alpha$, since $-1\leq\alpha\leq1$ is the 
+range of valid $\alpha$ and just so happens to also be 
+the interval of convergence of these power series. Hence the sum in our (76) becomes 
+\begin{align}
+    (1+\alpha)^{5/3}+(1-\alpha)^{5/3}&= \sum_{i=0}^{\infty} {5/3 \choose i}\alpha^i+\sum_{i=0}^{\infty} {5/3 \choose i}(-1)^i\alpha^i\\ 
+    &=\sum_{i=0}^{\infty} {5/3 \choose i}\alpha^i [1+(-1)^i]\\ 
+    &=2+0+\frac{10}{9}\alpha^2+0+\frac{10}{243}\alpha^4+O(\alpha^6)\\
+    &\approx2+\frac{10}{9}\alpha^2+\frac{10}{243}\alpha^4
+\end{align}
+Where in the last step the higher order terms $O(\alpha^6)$ are deemed to be
+ negligible. Notice that the expansion is even in $\alpha$. This is a result from the isospin symmetry, 
+ requiring that nuclear energy must be symmetric under interchange of protons and neutrons.   Our (76) hence becomes 
+\begin{align}
+    \Delta\epsilon&=n\la{E_f}\ra[\frac{1}{2}[2+\frac{10}{9}\alpha^2+\frac{10}{243}\alpha^4]-1]\\ 
+    &=n\la E_f\ra(\frac{5}{9}\alpha^2+\frac{5}{243}\alpha^4)
+\end{align}
+Notice that 243 is divisible by 27, and hence we can factor out the whole $5\alpha^2/9$ term out from our (84), 
+hence giving the final form 
+\begin{align}
+    \boxed{\Delta\epsilon=\frac{5}{9}n\la{E_f}\ra\alpha^2(1+\frac{\alpha^2}{27})}
+\end{align}
+\section*{Normalising the TOV Equations}
+The pressure equation for the TOV pair of equations is as follows 
+\begin{align}
+    \dv{p}{r}=-\frac{G\epsilon M}{c^2r^2}(1+\frac{p}{\epsilon})(1+\frac{4\pi}{c^2}\frac{r^3p}{M})(1-\frac{2GM}{c^2r})^{-1}
+\end{align}
+We seek to transform this into an equation containing only the normalised pressure $\bar{p}$ and the normalised mass $\bar{M}$ and relevant constants, 
+and we will rely heavily on the definitions introduced in page 895. We see that 
+\begin{align}
+    \dv{\bar{p}}{r}=\dv{(p/\epsilon_0)}{r}=\frac{1}{\epsilon_0}\dv{p}{r}
+\end{align}
+If we absorb the coefficient into the first term, it becomes 
+\begin{align}
+    -\frac{G\epsilon/\epsilon_0 M}{c^2r^2}=-\alpha\frac{\bar{M}\bar{p}^{1/\gamma}}{r^2}
+\end{align}
+Where we skipped over the exact steps since it is the same as deriving the paper's 
+(43). Feel free to 
+revisit that derivation if this seems unfamilliar. Now, the second factor can also be rewritten as follows
+\begin{align}
+    1+\frac{p}{\epsilon}=1+\frac{p/\epsilon_0}{\epsilon/\epsilon_0}=1+\frac{\bar{p}}{\bar{\epsilon}}=1+\bar{p}(\frac{\bar{K}}{\bar{p}})^{1/\gamma}=1+\bar{K}^{1/\gamma}\bar{p}^{1-1/\gamma}
+\end{align}
+Onto the third factor. Keep in mind the definitions of the normalised variables. 
+\begin{align}
+    1+\frac{4\pi}{c^2}\frac{r^3p}{M}=1+\frac{4\pi}{c^2}\frac{r^3\bar{p}/\epsilon_0}{\bar{M}M_{\odot}}=1+\frac{4\pi}{M_{\odot}c^2\epsilon_0}\frac{\bar{p}}{\bar{M}}r^3=1+\beta\frac{\bar{K}^{1/\gamma}}{\epsilon_0^2}\frac{\bar{p}}{\bar{M}}r^3
+\end{align}
+Finally, the terms inside the brackets of the last factor reads
+\begin{align}
+    1-\frac{2GM}{c^2r}=1-2\frac{GM_{\odot}}{c^2}\frac{\bar{M}}{r}=1-2R_0\frac{\bar{M}}{r}
+\end{align}
+Putting it all together, the pressure equation reads as follows 
+\begin{align}
+\boxed{    \dv{p}{r}=-\alpha\frac{\bar{M}\bar{p}^{1/\gamma}}{r^2}(1+\bar{K}^{1/\gamma}\bar{p}^{1-1/\gamma})(1+\beta\frac{\bar{K}^{1/\gamma}}{\epsilon_0^2}\frac{\bar{p}}{\bar{M}}r^3)(1-2R_0\frac{\bar{M}}{r})^{-1}
+}\end{align}
+Since the mass equation only consists of adding up all the masses from the center to the surface of th e
+star, nothing changes the equation, hence it is identical to the newtonian approach, 
+which is the same 
+the same as our (48), reading 
+\begin{align}
+    \boxed{\dv{\bar{M}}{r}=\beta\bar{p}^{1/\gamma}r^2}
+\end{align}
+\section*{The Lane-Emden Equations}
+Recall that at the very start, we derived the following set of equations for the pressure 
+and mass of a star. 
+\begin{align}
+    \frac{dp}{dr}&=-\frac{GM\rho}{r^2}\\
+    \frac{dM}{dr}&=4\pi\rho r^2
+\end{align}
+We can try to eliminate $M$ from the top equation to get this pair to reduce to a single, 
+second order ODE. To do so, we need to get the $M$ in our (94) to be in terms of $dM/dr$, 
+which is whats given in our (95). Notice that if we simple differentiated our (94) WRT $r$, we would have to apply the 
+produce rule three times, since the quantity $M\rho/r^2$ have factors all dependent on $r$. The 
+easiest way to get $M$ by itself is to multiply both sides by $r^2/\rho$. After that we can differentiate 
+both sides WRT $r$. 
+\begin{align}
+    \frac{r^2}{\rho}\frac{dp}{dr}=-GM\implies \frac{d}{dr} 
+    (\frac{r^2}{\rho}\frac{dp}{dr} ) =-G\frac{dM}{dr}
+\end{align} 
+Substituting in the $dM/dr$ from our (95) and dividing both sides by $r^2$, we obtain 
+\begin{align}
+    \boxed{\frac{1}{r^2}\frac{d}{dr}(\frac{r^2}{\rho}\frac{dp}{dr})=-4\pi G\rho}
+\end{align}
+The solutions of $p$ and $\rho$ are well known to be given in the following form 
+\begin{align}
+    p&=K\rho_0^{1+1/n}\phi^{n+1} \\
+    \rho&=\rho_0\phi^n
+\end{align}
+Where $\phi=\phi(r)$ is a function of $r$, and is currently unknown. Therefore, our objective 
+is to rewrite our (97) in terms of $\phi$, so that we only have to solve for one function instead of two in our equation.
+We begin by examining the part inside of the parenthesis. 
+\begin{align}
+    \frac{r^2}{\rho}\frac{dp}{dr}=\frac{r^2}{\rho}\frac{dp}{d\phi}\frac{d\phi}{dr}
+\end{align}
+Since we know the relation between $p$ and $\phi$ from our (98), we can easily find that 
+\begin{align}
+    \frac{dp}{d\phi}=K\rho_0^{1+1/n}(n+1)\phi^n
+\end{align}
+Substituting this inside our expression in (100) and also recognising that $\rho$ is given by our equation (99), we obtain 
+\begin{align}
+    \frac{r^2}{\rho}\frac{dp}{d\phi}\frac{d\phi}{dr}=\frac{r^2}{\rho_0\phi^n}K\rho_0^{1+1/n}(n+1)\phi^n\frac{d\phi}{dr}=r^2K\rho_0^{1/n}(n+1)\frac{d\phi}{dr}
+\end{align}
+Hence, our (97) becomes 
+\begin{align}
+    \frac{1}{r^2}\frac{d}{dr}(r^2K\rho_0^{1/n}(n+1)\frac{d\phi}{dr})=-4\pi G\rho_0\phi^n
+\end{align}
+Where we have substituted the $\rho$ on the right hand side for the expression in our (99).
+Now, if we gather all the constants to outside of the brackets on the left hand side, we obtain 
+\begin{align}
+    \frac{K\rho_0^{1/n-1}(n+1)}{4\pi G}\frac{1}{r^2}\frac{d}{dr}(r^2\frac{d\phi}{dr})=-\phi^n
+\end{align}
+For simplicity, we now define a constant 
+\begin{align}
+    \alpha^2\equiv \frac{K\rho_0^{1/n-1}(n+1)}{4\pi G}
+\end{align}
+The square on $\alpha$ is because $r$ is always squared in our equation, so that we can define 
+a new variable 
+\begin{align}
+    \xi\equiv\frac{r}{\alpha}
+\end{align}
+Now, we can do a change of variables in our equation, where the following changes in the operators has to be made 
+\begin{align}
+    \frac{d}{dr}&=\frac{d}{d\xi}\frac{d\xi}{dr}=\frac{1}{\alpha}\frac{d}{d\xi} 
+\end{align}
+Where we have recognised that from our (106), $d\xi/dr=1/\alpha$. Now, our (104) becomes 
+\begin{align}
+    \frac{\alpha^2}{r^2}\frac{d}{dr}(r^2\frac{d\phi}{dr})&=-\phi^2
+    \implies \frac{1}{\xi^2}\frac{1}{\alpha}\frac{d}{d\xi}(\alpha^2\xi^2\frac{1}{\alpha}\frac{d\phi}{d\xi})=-\phi^n
+\end{align}
+Notice that the $\alpha$ on the left hand side all cancels out. Moving everything to the left hand side, we are left with the classic form 
+of the Lane-Emden equation. 
+\begin{align}
+    \boxed{\frac{1}{\xi^2}\frac{d}{d\xi}(\xi^2\frac{d\phi}{d\xi})+\phi^n=0}
+\end{align}
+\end{document}
+
