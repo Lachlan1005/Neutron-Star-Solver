@@ -92,7 +92,7 @@ def runSimulation(a:float,b:float,gamma:float,epsilon0:float, p0, dr, customAB:b
 
 def terminalSimulation():
     print("===================================================")
-    preset=int(input("Welcome to Polytrope Solver. Enter 0 to view preset solution (white dwarf) or insert any other number to solve from custom parameters.\nA unit system in km and solar masses will be used.\nYour input: ")) 
+    preset=int(input("Welcome to TOV Polytrope Solver. Enter 0 to view preset solution or insert any other number to solve from custom parameters.\nA unit system in km and solar masses will be used.\nYour input: ")) 
     print("===================================================")
     if preset==0:
         graph=False
@@ -109,7 +109,7 @@ def terminalSimulation():
         p0=float(input("Enter central normalised pressure: "))
         a=float(input("Enter coefficient of pressure equation (parameter a): "))
         b=float(input("Enter coefficient of mass equation (parameter b): "))
-        gamma=float(input("Enter polytropic index (parameter gamma, 1.25 for relativistic and 1.67 for nonrelativistic): "))
+        gamma=float(input("Enter polytropic exponent: "))
         epsilon0=10**(-12)
         dr=float(input("Enter step size: "))
         graph=False
@@ -122,7 +122,7 @@ def terminalSimulation():
             verbosity=True
         WDrk4(pressureChange,massChange,p0,0,dr,epsilon0, gamma, a, b, "Polytrope",10**(-12),graph, verbosity)
 
-runSimulation(1.473, .0488, 2, .1, 0.01, .00001, False,1,1,True,True)
+#runSimulation(1.473, .0488, 2, .1, 0.01, .00001, False,1,1,True,True)
 
 #terminalSimulation()
 #dataset=runSimulation(1.473, 52.46, 4/3, 10**(-12), 10**(-16), .005, False,1,1,True,True)

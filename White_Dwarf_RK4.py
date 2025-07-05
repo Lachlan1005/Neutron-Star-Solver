@@ -85,8 +85,8 @@ def runSimulation(a:float,b:float,gamma:float,epsilon0:float, p0, dr, customAB:b
 
 def terminalSimulation():
     print("===================================================")
-    preset=int(input("Welcome to Polytrope Solver. Enter 0 to view preset solution (white dwarf) or insert any other number to solve from custom parameters.\nA unit system in km and solar masses will be used.\nYour input: ")) 
-    print("===================================================")
+    preset=int(input("Welcome to Newtonian Polytrope Solver. Enter 0 to view preset solution (white dwarf) or insert any other number to solve from custom parameters.\nA unit system in km and solar masses will be used.\nYour input: ")) 
+    print(100*"=")
     if preset==0:
         graph=False
         graphNum=int(input("Enter 1 to plot result. Enter any number to omit the plot. "))
@@ -118,7 +118,7 @@ def terminalSimulation():
 
 #terminalSimulation()
 #dataset=runSimulation(1.473, 52.46, 4/3, 10**(-12), 10**(-16), .003, False,1,1,True,False)
-runSimulation(1.473, .052, 2.11, 10**(-12), 0.01, .003, False,1,1,True,False)
+#runSimulation(1.473, .052, 2.11, 10**(-12), 0.01, .003, False,1,1,True,False)
 
 
 

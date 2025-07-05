@@ -131,8 +131,25 @@ def RvsM(debug:int, a:float,b:float,gamma:float, epsilon0:float, p0min:float, p0
 #RvsM(2, 0.05, 0.005924, 5/3, 10**(-8), 10**(-5), 10**(3),.01)
 
 #Neutron Star1
-RvsM(2, 1.473, 0.0488, 2, 10**(-2),10**(-16.9), 10**(8),.001)
 
+
+def terminalSimulation():
+    print(100*"=")
+    preset=int(input("Welcome to TOV Equation of State Solver. Enter 0 to view preset solution or insert any other number to solve from custom parameters.\nA unit system in km and solar masses will be used.\nYour input: ")) 
+    print(100*"=")
+    if preset==0:
+        graph=False
+        RvsM(2, 1.473, 0.0488, 2, 10**(-2),10**(-16.9), 10**(8),.001)
+    else:
+        print("Enter the parameters that characterise your sample of stars. See documentation for common parameters for red giants, neutron stars, and more.")
+        p0min=float(input("Enter minimum central normalised pressure: "))
+        p0max=float(input("Enter minimum central normalised pressure: "))
+        a=float(input("Enter coefficient of pressure equation (parameter a): "))
+        b=float(input("Enter coefficient of mass equation (parameter b): "))
+        gamma=float(input("Enter polytropic exponent (parameter gamma): "))
+        epsilon0=10**(-12)
+        dr=float(input("Enter radial step size (parameter dr): "))
+    return RvsM(2,a,b,gamma,epsilon0,p0min,p0max,dr)
 
 
 

@@ -45,5 +45,5 @@ def Equation_of_state(a:float, b:float, dr=10, customAB=False, p=10**(-16), M=0,
     return r
 
 
-Equation_of_state(.013,.005924)
+#Equation_of_state(.013,.005924)
 

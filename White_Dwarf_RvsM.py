@@ -96,7 +96,24 @@ def MassRadius(a,b,p0,p0max,dp=3*10**(-16)):
     plt.show()
     return sol
 
-#print(MassRadius(1.473,52.46,+0.1*10**(-16)-0*10**(-12),10**(-16)+10**(-13.5), 10**(-18)))
 
-MassRadius(1.473, 0.052, 10**(-5),100, 0.1)
+
+def terminalSimulation():
+    print(100*"=")
+    preset=int(input("Welcome to Newtonian Equation of State Solver. Enter 0 to view preset solution or insert any other number to solve from custom parameters.\nA unit system in km and solar masses will be used.\nYour input: ")) 
+    print(100*"=")
+    if preset==0:
+        graph=False
+        MassRadius(1.473, 0.052, 10**(-5),100, 0.1)
+    else:
+        print("Enter the parameters that characterise your sample of stars. See documentation for common parameters for red giants, neutron stars, and more.")
+        p0min=float(input("Enter minimum central normalised pressure: "))
+        p0max=float(input("Enter minimum central normalised pressure: "))
+        a=float(input("Enter coefficient of pressure equation (parameter a): "))
+        b=float(input("Enter coefficient of mass equation (parameter b): "))
+        dp=float(input("Enter pressure step size (parameter dp): "))
+    return MassRadius(a,b,p0min,p0max,dp)
+
+
+#print(MassRadius(1.473,52.46,+0.1*10**(-16)-0*10**(-12),10**(-16)+10**(-13.5), 10**(-18)))
 #print(dataset[-2])
