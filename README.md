@@ -1,11 +1,11 @@
 # Polytropic Neutron Star Solver
 This project provides the tools to solve various polytropic models for neutron stars (main focus) and other celestial objects such as White Dwarves based on the Tolman-Oppenheimer-Volkov (TOV) Equations.
-There is also tools for modelling using the classical Newtonian equations. Through this solver, you can obtain accurate solutions for 
+There are also tools for modelling using the classical Newtonian equations. Through this solver, you can model the 
 
 - The structure equations 
 - The equation of states (EoS)
 
-For the object of interest, as long as you have the correct initial conditions for it. The units are in kilometers and solar masses. Pressure and several other quantities* are expressed in 
+For the object of interest, as long as you have the initial conditions for it. The units used here are in kilometers and solar masses. Pressure and several other quantities* are expressed in 
 normalised units by the parameter $$\epsilon_0$$. More details about the choice of normalisation parameter and the choice of units can be found in "Neutron Stars for Undergraduates" by Reddy and Silbar - the paper which this 
 project is based upon. To get started, run Simulation_Wizard.py and follow the prompts. For mac users, use 
 
