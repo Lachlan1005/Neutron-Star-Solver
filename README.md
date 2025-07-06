@@ -36,4 +36,4 @@ This is the EoS solver using the TOV model. Solves for the masses and radii of a
 This is an Euler solver for the Fermi gas model for a polytrope. Obselete in any precise modelling. Diverges quickly and often yields null results. Inaccessable by the simulation wizard. 
 
 ## Notes 
-To view the fully rendered notes, open "derivations.pdf". These proofs are the derivations to the various equations presented in the "Neutron Stars for Undergraduates" paper mentioned above. 
+To view the fully rendered notes, open "derivations.pdf" in the "Proofs" folder. These proofs are the derivations to the various equations presented in the "Neutron Stars for Undergraduates" paper mentioned above. Each proof is numbered, corresponding to the equation numbers in the paper. 
